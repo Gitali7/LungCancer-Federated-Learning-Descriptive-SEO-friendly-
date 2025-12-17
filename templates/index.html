@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LungNet AI - Cancer Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-lungs-virus"></i> LungNet<span>AI</span>
+            </div>
+            <p class="subtitle">Advanced Federated Computer Vision System</p>
+        </header>
+
+        <!-- Main Card -->
+        <main class="glass-card">
+            
+            <div class="upload-section" id="drop-area">
+                <div class="icon-container">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h3>Upload CT Scan Slice</h3>
+                <p>Drag & Drop or Click to Browse</p>
+                <input type="file" id="fileElem" accept="image/*" onchange="handleFiles(this.files)">
+            </div>
+
+            <!-- Preview Section -->
+            <div class="preview-section" id="preview-section" style="display: none;">
+                <img id="image-preview" src="" alt="Scan Preview">
+                <div class="loader" id="loader" style="display: none;"></div>
+            </div>
+
+            <!-- Result Section -->
+            <div class="result-section" id="result-section" style="display: none;">
+                <div class="status-indicator"></div>
+                <h2 id="result-label">Analyzing...</h2>
+                <div class="confidence-bar-bg">
+                    <div class="confidence-bar-fill" id="confidence-bar"></div>
+                </div>
+                <p class="confidence-text">Confidence: <span id="confidence-score">0%</span></p>
+            </div>
+
+            <button class="reset-btn" onclick="resetApp()" id="reset-btn" style="display: none;">Analyze Another</button>
+
+        </main>
+
+        <footer>
+            <p>Powered by ResNet50 & Federated Learning</p>
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
