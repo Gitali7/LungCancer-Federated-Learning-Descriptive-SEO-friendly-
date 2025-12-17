@@ -4,5 +4,6 @@ __pycache__/
 .env
 .DS_Store
 logs/
-data/
+# data/
+data/raw/LIDC-IDRI-slices/
 *.h5
